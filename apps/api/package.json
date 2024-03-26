@@ -26,6 +26,9 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/platform-fastify": "^10.3.5",
     "fastify": "^4.26.2",
+    "nestjs-pino": "^4.0.0",
+    "pino-http": "^9.0.0",
+    "pino-pretty": "^11.0.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1"
   },
