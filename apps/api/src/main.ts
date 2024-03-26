@@ -7,11 +7,21 @@ import {
 import { LoggerMiddleware } from './common/logger.middleware';
 import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
       const app = await NestFactory.create<NestFastifyApplication>(
         AppModule,
         new FastifyAdapter()
+      );
+
+      //Whitelist body
+      app.useGlobalPipes(
+        new ValidationPipe({
+          whitelist: true, //only allow req if it meets dto parameters
+          forbidNonWhitelisted: true, //not allow req if body contains extra keys then mentioned in dto
+          transform: true,//transform the body items to as per dto(ex.string to number)
+        }),
       );
 
       // Apply your custom middleware
@@ -30,6 +40,10 @@ async function bootstrap() {
       .addServer('https://staging.yourapi.com/', 'Staging')
       .addServer('https://production.yourapi.com/', 'Production')
       .addTag('Your API Tag')
+      .addBearerAuth(
+        { type: 'http', scheme: 'bearer', bearerFormat: 'JWT', in: 'header' },
+        'authorization',
+        )
       .build();
 
       const document = SwaggerModule.createDocument(app, options);
