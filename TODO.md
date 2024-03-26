@@ -13,7 +13,7 @@
 - [ ] GraphQL
 - [ ] API versioning
 - [ ] Drizzle
-- [ ] Supabase (database, auth, storage)
+- [x] Supabase (database, auth, storage)
 - [ ] KeyDB/Dragonfly cache (Redis alternative)
 - [ ] rate limiting with KeyDB/Dragonfly
 - [ ] Memphis.dev (queue alternative to Kafka/Bullmq/RabbitMQ, ...)
