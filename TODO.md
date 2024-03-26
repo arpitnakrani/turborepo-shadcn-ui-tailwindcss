@@ -6,7 +6,7 @@
 - [x] monorepo Turbo
 - [x] Nestjs
 - [x] fixing turbo / pnpm scripts
-- [ ] logging with Pino
+- [x] logging with Pino
 - [ ] Swagger for API documentation
 - [ ] testing with Jest
 - [x] Fastify
