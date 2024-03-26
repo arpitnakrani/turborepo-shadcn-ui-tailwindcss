@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
+import { AppModule } from './app/app.module';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -14,14 +14,14 @@ async function bootstrap() {
         new FastifyAdapter()
       );
 
-      //Apply your custom middleware
+      // Apply your custom middleware
       // app.use(new LoggerMiddleware().use);
 
-      //Apply pino logger
+      // Apply pino logger
       app.useLogger(app.get(Logger));
       app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
-      //Swagger
+      // Swagger
       const options = new DocumentBuilder()
       .setTitle('NESTJS APPLICATION')
       .setDescription('API description')
