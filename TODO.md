@@ -7,7 +7,7 @@
 - [x] Nestjs
 - [x] fixing turbo / pnpm scripts
 - [x] logging with Pino
-- [ ] Swagger for API documentation
+- [x] Swagger for API documentation
 - [ ] testing with Jest
 - [x] Fastify
 - [ ] GraphQL
