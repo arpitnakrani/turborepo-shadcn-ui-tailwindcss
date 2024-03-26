@@ -8,7 +8,7 @@ export class AppService {
   getHello(): string {
     // this.logger.log(`Retrieve all AppService`);
     this.logger.error({ id: `retrieve-all-AppService-error` }, `Retrieve all AppService`) // object passed in first argument
-    throw new Error("fdfsdfdf")
+    // throw new Error("fdfsdfdf")
 
     return 'Hello World!';
   }
