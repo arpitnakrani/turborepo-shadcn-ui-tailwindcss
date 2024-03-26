@@ -9,7 +9,7 @@
 - [ ] logging with Pino
 - [ ] Swagger for API documentation
 - [ ] testing with Jest
-- [ ] Fastify
+- [x] Fastify
 - [ ] GraphQL
 - [ ] API versioning
 - [ ] Drizzle
