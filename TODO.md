@@ -12,7 +12,7 @@
 - [x] Fastify
 - [ ] GraphQL
 - [ ] API versioning
-- [ ] Drizzle
+- [x] Drizzle
 - [x] Supabase (database, auth, storage)
 - [ ] KeyDB/Dragonfly cache (Redis alternative)
 - [ ] rate limiting with KeyDB/Dragonfly
