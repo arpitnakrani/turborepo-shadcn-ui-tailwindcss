@@ -4,9 +4,10 @@ import { AuthService } from './auth.service';
 import { UserService } from 'src/user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { drizzleProvider } from 'src/drizzle/drizzle.provider';
+import { DrizzleModule } from 'src/drizzle/drizzle.module';
 
 @Module({
   controllers: [AuthController],
-  providers: [AuthService, UserService, JwtService , ...drizzleProvider],
+  providers: [AuthService, UserService, JwtService ],
 })
 export class AuthModule {}

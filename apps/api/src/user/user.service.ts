@@ -6,11 +6,12 @@ import { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import * as schema from "../drizzle/schema"
 import { eq } from 'drizzle-orm';
 import { PostgresJsDb, DRIZZLE_ORM } from '@ockonor/nest-drizzle';
+import { DrizzleService } from 'src/drizzle/drizzle.service';
 
 @Injectable()
 export class UserService {
-  constructor(@Inject(DrizzleAsyncProvider) private db : PostgresJsDatabase<typeof schema>){}
-
+  constructor(private readonly drizzleService : DrizzleService){}
+  private db  = this.drizzleService.db
   async create(dto: CreateUserDto) {
     const user = await this.db.query.users.findFirst({
       where: eq(schema.users.email , dto.email)
