@@ -8,7 +8,7 @@
 - [x] fixing turbo / pnpm scripts
 - [x] logging with Pino
 - [x] Swagger for API documentation
-- [ ] testing with Jest
+- [x] testing with Jest
 - [x] Fastify
 - [ ] GraphQL
 - [ ] API versioning
