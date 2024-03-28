@@ -29,7 +29,7 @@ async function bootstrap() {
 
       // Apply pino logger
       app.useLogger(app.get(Logger));
-      app.useGlobalInterceptors(new LoggerErrorInterceptor());
+      // app.useGlobalInterceptors(new LoggerErrorInterceptor());
 
       // Swagger
       const options = new DocumentBuilder()
