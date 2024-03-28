@@ -20,7 +20,7 @@ export class UserService {
     if (user) throw new ConflictException('email duplicated');
 
     const newUsers = await this.db.insert(schema.users).values({
-      id : 1 ,
+      // id : 1 ,
       ...dto,
       password : await hash(dto.password , 10)
     }).returning()
