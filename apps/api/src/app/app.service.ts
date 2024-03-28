@@ -8,14 +8,12 @@ import { DrizzleService } from 'src/drizzle/drizzle.service';
 
 @Injectable()
 export class AppService {
-  constructor(private readonly drizzleService : DrizzleService){}
-  private db  = this.drizzleService.db
+  constructor(){}
     private readonly logger = new Logger(AppService.name);
 
   getHello(): string {
     // this.logger.log(`Retrieve all AppService`);
-    this.logger.error({ id: `retrieve-all-AppService-error` }, `Retrieve all AppService`) // object passed in first argument
-    // throw new Error("fdfsdfdf")
+    // this.logger.error({ id: `retrieve-all-AppService-error` }, `Retrieve all AppService`) // object passed in first argument
 
     return 'Hello World!';
   }
