@@ -15,6 +15,7 @@ export class RefreshJwtGuard implements CanActivate {
     const request = context.switchToHttp().getRequest<FastifyRequest>(); // Specify FastifyRequest
     const token = this.extractTokenFromHeader(request);
 
+    console.log(token , "token")
     if (!token) throw new UnauthorizedException();
 
     try {
@@ -31,6 +32,6 @@ export class RefreshJwtGuard implements CanActivate {
 
   private extractTokenFromHeader(request: FastifyRequest) { // Use FastifyRequest instead of Request
     const [type, token] = request.headers.authorization?.split(' ') ?? [];
-    return type === 'Refresh' ? token : undefined;
+    return type === 'Bearer' ? token : undefined;
   }
 }
