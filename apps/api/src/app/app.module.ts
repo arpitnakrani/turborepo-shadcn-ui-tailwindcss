@@ -10,11 +10,16 @@ import { DrizzleModule } from 'src/drizzle/drizzle.module';
 import { NestDrizzleModule } from '@ockonor/nest-drizzle';
 import * as schema from "../drizzle/schema"
 import { DrizzleService } from 'src/drizzle/drizzle.service';
-
+import { GraphQLModule } from '@nestjs/graphql';
+import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 @Module({
   imports: [
     LoggerModule.forRoot(PinoLogger),
     ConfigModule.forRoot({isGlobal: true}),
+    GraphQLModule.forRoot<MercuriusDriverConfig>({
+      driver: MercuriusDriver,
+      graphiql: true,
+    }),
     DrizzleModule,
     UserModule,
     AuthModule,
