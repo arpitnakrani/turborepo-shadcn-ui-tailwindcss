@@ -1,9 +1,65 @@
 {
-  "id": "0695acf1-eefb-497e-8a2c-7cb25ab9bb8c",
-  "prevId": "8bfe78cd-d139-465a-b97e-44396c5b4dcc",
+  "id": "1d15584b-300c-43f1-be7a-853a95e025db",
+  "prevId": "d2fd9d2f-027b-46cf-9312-e93975f7b889",
   "version": "5",
   "dialect": "pg",
   "tables": {
+    "tasks": {
+      "name": "tasks",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "task": {
+          "name": "task",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "author": {
+          "name": "author",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "tasks_author_users_id_fk": {
+          "name": "tasks_author_users_id_fk",
+          "tableFrom": "tasks",
+          "tableTo": "users",
+          "columnsFrom": [
+            "author"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "tasks_task_unique": {
+          "name": "tasks_task_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "task"
+          ]
+        }
+      }
+    },
     "users": {
       "name": "users",
       "schema": "",
@@ -29,6 +85,18 @@
         "password": {
           "name": "password",
           "type": "varchar(256)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "user_id": {
+          "name": "user_id",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": false
         }

@@ -10,14 +10,20 @@ import { DrizzleModule } from 'src/drizzle/drizzle.module';
 import { NestDrizzleModule } from '@ockonor/nest-drizzle';
 import * as schema from "../drizzle/schema"
 import { DrizzleService } from 'src/drizzle/drizzle.service';
+import { SupabaseModule } from 'src/supabase/supabase.module';
+import { UserSupabaseModule } from 'src/user-supabase/user-supabase.module';
+import { TaskModule } from 'src/task/task.module';
 
 @Module({
   imports: [
     LoggerModule.forRoot(PinoLogger),
     ConfigModule.forRoot({isGlobal: true}),
     DrizzleModule,
-    UserModule,
-    AuthModule,
+    SupabaseModule,
+    // UserModule,
+    // AuthModule,
+    UserSupabaseModule,
+    TaskModule
   ],
   controllers: [AppController],
   providers: [AppService ],
