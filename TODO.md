@@ -10,7 +10,7 @@
 - [x] Swagger for API documentation
 - [x] testing with Jest
 - [x] Fastify
-- [ ] GraphQL
+- [x] GraphQL
 - [ ] API versioning
 - [x] Drizzle
 - [x] Supabase (database, auth, storage)
