@@ -12,6 +12,7 @@ import { DrizzleService } from 'src/drizzle/drizzle.service';
 export class UserService {
   constructor(private readonly drizzleService : DrizzleService){}
   private db  = this.drizzleService.db
+
   async create(dto: CreateUserDto) {
     const user = await this.db.query.users.findFirst({
       where: eq(schema.users.email , dto.email)
@@ -35,6 +36,7 @@ export class UserService {
       where: eq(schema.users.email , email)
     });
   }
+  
   async findById(id: number) {
     return await this.db.query.users.findFirst({
       where: eq(schema.users.id , id)
