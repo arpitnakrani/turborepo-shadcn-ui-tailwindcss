@@ -9,8 +9,8 @@ import { FastifyRequest } from 'fastify';
 
 @ApiTags('task')
 @UseGuards(supabaseJwtGuard)
-@ApiBearerAuth('accessToken')
-@ApiBearerAuth('refreshToken')
+@ApiBearerAuth('accesstoken')
+@ApiBearerAuth('refreshtoken')
 @Controller('task')
 export class TaskController {
 

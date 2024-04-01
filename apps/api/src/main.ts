@@ -46,7 +46,6 @@ async function bootstrap() {
       //   )
       .addApiKey( {type : 'apiKey' , scheme: 'bearer', bearerFormat: 'JWT' , in: 'header' } ,'accesstoken')
       .addApiKey( {type : 'apiKey' , scheme: 'bearer', bearerFormat: 'JWT' , in: 'header'} ,'refreshtoken')
-
       .build();
 
       const document = SwaggerModule.createDocument(app, options);

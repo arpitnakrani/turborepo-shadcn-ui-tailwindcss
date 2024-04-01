@@ -16,9 +16,18 @@ export const users = pgTable('users', {
     author: integer('author').notNull().references(()=>users.id),
   });
 
+  export const userTaskInvites = pgTable('userTaskInvites', {
+    id: serial('id').primaryKey(),
+    taskId : integer('taskId').notNull().references(()=>tasks.id),
+    userId: integer('userId').notNull().references(()=>users.id),
+  });
+
+
+
   export const userRelations = relations(users , ({one , many})=>
   ({
       tasks : many(tasks),
+      userTaskInvites : many(userTaskInvites)
   }))
   
   export const taskRelations = relations(tasks , ({one , many})=>
@@ -26,7 +35,10 @@ export const users = pgTable('users', {
       user : one(users , {
         fields : [tasks.author],
         references :[users.id]
-      })
+      }),
+      tasks : many(userTaskInvites)
   }) 
 )
+
+
   

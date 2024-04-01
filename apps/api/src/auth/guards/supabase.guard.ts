@@ -57,7 +57,7 @@ import { SupabaseService } from 'src/supabase/supabase.service';
   
     private extractTokenFromHeader(request: Request, key: string) {
 
-        console.log(request.headers , "headers")
+        // console.log(request.headers , "headers")
         const headerValue = request.headers[key];
         if (headerValue && typeof headerValue === 'string') {
             // const token = headerValue.split(' ')[1];
