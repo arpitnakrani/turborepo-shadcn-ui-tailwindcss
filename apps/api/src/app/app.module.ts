@@ -33,7 +33,7 @@ import { TaskModule } from 'src/task/task.module';
     }),
     DrizzleModule,
     SupabaseModule,
-    // UserModule,
+    UserModule,
     // AuthModule,
     UserSupabaseModule,
     TaskModule
