@@ -1,6 +1,8 @@
 {
     "cSpell.words": [
+        "accesstoken",
         "Fastify",
+        "refreshtoken",
         "supabase"
     ]
 }

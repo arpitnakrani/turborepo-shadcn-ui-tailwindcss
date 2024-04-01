@@ -40,10 +40,12 @@ async function bootstrap() {
       .addServer('https://staging.yourapi.com/', 'Staging')
       .addServer('https://production.yourapi.com/', 'Production')
       .addTag('Your API Tag')
-      .addBearerAuth(
-        { type: 'http', scheme: 'bearer', bearerFormat: 'JWT', in: 'header' },
-        'authorization',
-        )
+      // .addBearerAuth(
+      //   { type: 'http', scheme: 'bearer', bearerFormat: 'JWT', in: 'header' },
+      //   'authorization',
+      //   )
+      .addApiKey( {type : 'apiKey' , scheme: 'bearer', bearerFormat: 'JWT' , in: 'header' } ,'accesstoken')
+      .addApiKey( {type : 'apiKey' , scheme: 'bearer', bearerFormat: 'JWT' , in: 'header'} ,'refreshtoken')
       .build();
 
       const document = SwaggerModule.createDocument(app, options);

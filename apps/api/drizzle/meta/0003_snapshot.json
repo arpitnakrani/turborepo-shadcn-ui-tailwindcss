@@ -1,6 +1,6 @@
 {
-  "id": "d2fd9d2f-027b-46cf-9312-e93975f7b889",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "3ebfd1e8-942b-4945-bb90-6b1262f30a3a",
+  "prevId": "4982e5b9-6657-4159-a60a-19241212666e",
   "version": "5",
   "dialect": "pg",
   "tables": {
@@ -24,27 +24,82 @@
           "name": "author",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false
-        },
-        "role": {
-          "name": "role",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
+          "notNull": true
         }
       },
       "indexes": {},
-      "foreignKeys": {},
-      "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "tasks_task_unique": {
-          "name": "tasks_task_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "task"
-          ]
+      "foreignKeys": {
+        "tasks_author_users_id_fk": {
+          "name": "tasks_author_users_id_fk",
+          "tableFrom": "tasks",
+          "tableTo": "users",
+          "columnsFrom": [
+            "author"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
         }
-      }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
+    "userTaskInvites": {
+      "name": "userTaskInvites",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "taskId": {
+          "name": "taskId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "userId": {
+          "name": "userId",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "userTaskInvites_taskId_tasks_id_fk": {
+          "name": "userTaskInvites_taskId_tasks_id_fk",
+          "tableFrom": "userTaskInvites",
+          "tableTo": "tasks",
+          "columnsFrom": [
+            "taskId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "userTaskInvites_userId_users_id_fk": {
+          "name": "userTaskInvites_userId_users_id_fk",
+          "tableFrom": "userTaskInvites",
+          "tableTo": "users",
+          "columnsFrom": [
+            "userId"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
     },
     "users": {
       "name": "users",

@@ -1,6 +1,4 @@
-import { PgDatabase } from "drizzle-orm/pg-core"
 import * as schema from "./schema"
-import { ConfigModule } from "@nestjs/config"
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres = require('postgres')
 import { migrate } from "drizzle-orm/postgres-js/migrator";
