@@ -11,7 +11,7 @@
 - [x] testing with Jest
 - [x] Fastify
 - [x] GraphQL
-- [ ] API versioning
+- [x] API versioning
 - [x] Drizzle
 - [x] Supabase (database, auth, storage)
 - [ ] KeyDB/Dragonfly cache (Redis alternative)
