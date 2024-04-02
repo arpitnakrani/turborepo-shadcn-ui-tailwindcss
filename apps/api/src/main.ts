@@ -5,9 +5,10 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { LoggerMiddleware } from './common/logger.middleware';
-import { Logger, LoggerErrorInterceptor } from 'nestjs-pino';
+import { Logger } from 'nestjs-pino';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { ValidationPipe } from '@nestjs/common';
+import { ValidationPipe, VersioningType } from '@nestjs/common';
+import { RateLimiterMiddleware } from './common/rateLimiter.middleware';
 
 async function bootstrap() {
       const app = await NestFactory.create<NestFastifyApplication>(
@@ -27,9 +28,17 @@ async function bootstrap() {
       // Apply your custom middleware
       // app.use(new LoggerMiddleware().use);
 
+      // middleware => RateLimiter
+      app.use(new RateLimiterMiddleware().use);
+
       // Apply pino logger
       app.useLogger(app.get(Logger));
       // app.useGlobalInterceptors(new LoggerErrorInterceptor());
+
+      app.enableVersioning({
+        type: VersioningType.URI,
+        defaultVersion: '1',
+      });
 
       // Swagger
       const options = new DocumentBuilder()
