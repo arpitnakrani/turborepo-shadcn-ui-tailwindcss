@@ -15,7 +15,7 @@
 - [x] Drizzle
 - [x] Supabase (database, auth, storage)
 - [ ] KeyDB/Dragonfly cache (Redis alternative)
-- [ ] rate limiting with KeyDB/Dragonfly
+- [x] rate limiting with KeyDB/Dragonfly
 - [ ] Memphis.dev (queue alternative to Kafka/Bullmq/RabbitMQ, ...)
 - [ ] ElectricSQL as localfirst sync integraded with Supabase
 
