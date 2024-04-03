@@ -19,8 +19,8 @@ export let dragonFlyClient: RedisClientType | null = null;
                     port : REDIS_CONFIG.PORT
                 }
             })
+            await dragonFlyClient.connect();
         }
-        await dragonFlyClient.connect();
         console.log("dragonFly connected successfully!")
         return dragonFlyClient
     }catch(err)
