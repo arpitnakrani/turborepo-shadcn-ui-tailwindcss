@@ -1,7 +1,7 @@
 
 import { NestMiddleware } from "@nestjs/common";
-import dragonFlyClient from "./dragonfly/dragonfly.client";
 import { FastifyReply, FastifyRequest } from "fastify";
+import getDragonFlyClient from "./dragonfly/dragonfly.client";
 
  
 export interface RateLimiterRule {
@@ -16,7 +16,9 @@ let RateLimiter : RateLimiterRule = { endpoint : "*" ,rate_limit :  {time : 60 ,
  
 export class RateLimiterMiddleware implements NestMiddleware {
     async use(req: FastifyRequest, res: FastifyReply['raw'], next: () => void) {
-        if(!dragonFlyClient) next(); //if redis is not installed on machine we are not restricting for strict restriction on production comment this line!
+        let dragonFlyClient = await getDragonFlyClient()
+        // console.log(dragonFlyClient , "dragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClient")
+        if(!dragonFlyClient) return next(); //if redis is not installed on machine we are not restricting for strict restriction on production comment this line!
         const { endpoint, rate_limit } = RateLimiter;
 
 

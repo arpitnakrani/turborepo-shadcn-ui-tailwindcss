@@ -9,7 +9,7 @@ export let dragonFlyClient: RedisClientType | null = null;
  
  
  
- async function redisFunc() {
+ async function getDragonFlyClient() {
     try{
         if(! dragonFlyClient) {
             dragonFlyClient = createClient({
@@ -22,15 +22,15 @@ export let dragonFlyClient: RedisClientType | null = null;
         }
         await dragonFlyClient.connect();
         console.log("dragonFly connected successfully!")
+        return dragonFlyClient
     }catch(err)
     {
             console.log(err , "connection to dragonFly failed!");
+            dragonFlyClient = null ;
+            return dragonFlyClient
     }   
    
 }
+  
  
- 
-redisFunc();
- 
- 
-export default dragonFlyClient;
+export default getDragonFlyClient;

@@ -17,6 +17,7 @@ import { join } from 'path';
 import { SupabaseModule } from 'src/supabase/supabase.module';
 import { UserSupabaseModule } from 'src/user-supabase/user-supabase.module';
 import { TaskModule } from 'src/task/task.module';
+import { MemphisModule } from 'src/memphis/memphis.module';
 
 @Module({
   imports: [
@@ -36,7 +37,8 @@ import { TaskModule } from 'src/task/task.module';
     UserModule,
     // AuthModule,
     UserSupabaseModule,
-    TaskModule
+    TaskModule,
+    MemphisModule
   ],
   controllers: [AppController],
   providers: [AppService , AppResolver ],
