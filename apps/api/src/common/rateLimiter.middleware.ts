@@ -18,7 +18,7 @@ export class RateLimiterMiddleware implements NestMiddleware {
     async use(req: FastifyRequest, res: FastifyReply['raw'], next: () => void) {
         let dragonFlyClient = await getDragonFlyClient()
         // console.log(dragonFlyClient , "dragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClientdragonFlyClient")
-        if(!dragonFlyClient) return next(); //if redis is not installed on machine we are not restricting for strict restriction on production comment this line!
+        if(!dragonFlyClient) return next(); //if dragonfly/redis is not installed on machine we are not restricting for strict restriction on production comment this line!
         const { endpoint, rate_limit } = RateLimiter;
 
 
