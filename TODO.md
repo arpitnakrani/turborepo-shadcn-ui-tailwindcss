@@ -18,6 +18,8 @@
 - [x] rate limiting with KeyDB/Dragonfly
 - [x] Memphis.dev (queue alternative to Kafka/Bullmq/RabbitMQ, ...)
 - [ ] ElectricSQL as localfirst sync integraded with Supabase
+- [ ] Microservices architecture
+- [ ] Github submodules for each microservice
 
 ---
 
