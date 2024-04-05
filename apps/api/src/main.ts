@@ -29,7 +29,7 @@ async function bootstrap() {
       // app.use(new LoggerMiddleware().use);
 
       // middleware => RateLimiter
-      app.use(new RateLimiterMiddleware().use);
+      // app.use(new RateLimiterMiddleware().use);
 
       // Apply pino logger
       app.useLogger(app.get(Logger));
