@@ -28,6 +28,7 @@ export class UserSupabaseService {
             const { data, error } = await this.supabase.auth.signUp({
               email: dto.email,
               password: dto.password,
+              options: {data : dto}
             })
       
             if(error) return error;

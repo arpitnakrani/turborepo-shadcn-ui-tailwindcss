@@ -6,7 +6,7 @@ import {
   } from '@nestjs/common';
   import { JwtService } from '@nestjs/jwt';
 import { SupabaseClient } from '@supabase/supabase-js';
-  import { Request } from 'express';
+import { FastifyRequest } from 'fastify/types/request';
 import { SupabaseService } from 'src/supabase/supabase.service';
   
   @Injectable()
@@ -55,7 +55,7 @@ import { SupabaseService } from 'src/supabase/supabase.service';
       return true;
     }
   
-    private extractTokenFromHeader(request: Request, key: string) {
+    private extractTokenFromHeader(request: FastifyRequest, key: string) {
 
         // console.log(request.headers , "headers")
         const headerValue = request.headers[key];
