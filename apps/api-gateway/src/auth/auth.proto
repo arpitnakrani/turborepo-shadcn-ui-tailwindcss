@@ -1,0 +1,36 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package auth;
+
+
+service AuthService {
+  rpc signUp (signUpPayload) returns (resultData) {}
+  rpc login (loginPayload) returns (resultData) {}
+}
+
+message signUpPayload {
+  string email = 1;
+  string password = 2;
+  string name = 3;
+  string role = 4;
+}
+
+message loginPayload {
+  string email = 1;
+  string password = 2;
+
+}
+
+message resultData {
+  string accessToken = 1;
+  string refreshToken = 2;
+  UserMeta user = 3;
+}
+
+message UserMeta {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  string role = 4;
+}
