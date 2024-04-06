@@ -41,12 +41,14 @@ async function bootstrap() {
     defaultVersion: '1',
   });
 
+  const PORT = 3002  //process.env.authService.port || config.get(authService).port
+
   // Swagger
   const options = new DocumentBuilder()
   .setTitle('NESTJS APPLICATION')
   .setDescription('API description')
   .setVersion('1.0')
-  .addServer('http://localhost:3002/', 'Local environment')
+  .addServer(`http://localhost:${PORT}/`, 'Local environment')
   .addServer('https://staging.yourapi.com/', 'Staging')
   .addServer('https://production.yourapi.com/', 'Production')
   .addTag('Your API Tag')
@@ -61,8 +63,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api-docs', app, document);
 
-  const PORT = 3002  //process.env.authService.port || config.get(authService).port
-  await app.listen(3002);
+  await app.listen(PORT);
   console.log(`api-gateway service started on port:${PORT}`)
 }
 bootstrap();

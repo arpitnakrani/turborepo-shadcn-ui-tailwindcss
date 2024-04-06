@@ -1,0 +1,52 @@
+syntax = "proto3";
+import "google/protobuf/any.proto";
+
+package task;
+
+
+service TaskService {
+  rpc createTask (createTaskPayload) returns (resultData) {}
+  rpc updateTask (updateTaskPayload) returns (resultData) {}
+  rpc inviteUserToTask (inviteUserToTaskPayload) returns (resultData) {}
+  rpc deleteTask (deleteTaskPayload) returns (resultData) {}
+  rpc getAllTask (getAllTaskPayload) returns (resultData) {}
+
+}
+
+message createTaskPayload {
+  string task = 1;
+  string owner = 2;
+}
+
+message updateTaskPayload {
+  string task = 1;
+}
+
+message deleteTaskPayload {
+  string taskId = 1;
+}
+
+message inviteUserToTaskPayload {
+  string taskId = 1;
+  string userId = 2;
+}
+
+message getAllTaskPayload {
+  string accessToken = 1;
+  string refreshToken = 2;
+}
+
+
+
+message resultData {
+  string task = 1;
+  string owner = 2;
+  //UserMeta user = 3;
+}
+
+message UserMeta {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  string role = 4;
+}

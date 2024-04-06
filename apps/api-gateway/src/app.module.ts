@@ -5,23 +5,16 @@ import { LoggerModule } from 'nestjs-pino';
 import { AppProviders } from './app.provider';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { join } from 'path';
+import { TaskModule } from './task/task.module';
+import { GrpcClientModule } from './grpc/grpcClient.module';
 
 @Module({
   imports: [
     LoggerModule.forRoot(),
-    ClientsModule.register([
-      {
-        name: 'GRPC_AUTH_SERVICE',
-        transport: Transport.GRPC,
-        options: {
-          package: 'auth',
-          protoPath: join(__dirname, './auth/auth.proto'),
-        },
-      },
-    ]),
+    GrpcClientModule,
+    TaskModule,
   ],
   controllers: [AppController],
-  providers: [AppService ], //...AppProviders
-  
+  providers: [AppService], //...AppProviders  
 })
 export class AppModule {}

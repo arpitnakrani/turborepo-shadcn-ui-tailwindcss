@@ -2,12 +2,10 @@ import { Body, Controller, Get, Inject, Post } from '@nestjs/common';
 import { AppService } from './app.service';
 import { ClientGrpc } from '@nestjs/microservices';
 import { ApiTags } from '@nestjs/swagger';
-import { SignupDto } from './auth/signup.dto';
-import { LoginDto } from './auth/login.dto';
-interface AuthService {
-  signUp(data : any): Promise<any>;
-  login(data : any): Promise<any>;
-}
+import { SignupDto } from './auth/dto/signup.dto';
+import { LoginDto } from './auth/dto/login.dto';
+import { IAuthService } from './interface/authService';
+
 @ApiTags('Auth')
 @Controller()
 export class AppController {
@@ -20,7 +18,7 @@ export class AppController {
 
   onModuleInit() {
     try {
-      this.authService = this.GrpcAuthServiceClient.getService<AuthService>('AuthService');
+      this.authService = this.GrpcAuthServiceClient.getService<IAuthService>('AuthService');
       console.log("GrpcAuthServiceClient onModuleInit" , this.GrpcAuthServiceClient)
       console.log(this.authService , "this.authService");
     }catch(err)
