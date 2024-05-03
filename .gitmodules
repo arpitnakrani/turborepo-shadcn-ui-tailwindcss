@@ -4,3 +4,6 @@
 [submodule "apps/microservice-task"]
 	path = apps/microservice-task
 	url = https://github.com/arpitnakrani/microservice-task.git
+[submodule "apps/microservice-auth"]
+	path = apps/microservice-auth
+	url = https://github.com/arpitnakrani/microservice-auth.git
