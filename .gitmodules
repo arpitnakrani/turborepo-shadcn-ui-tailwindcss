@@ -1,3 +1,6 @@
 [submodule "apps/sample-submodule"]
 	path = apps/sample-submodule
 	url = https://github.com/arpitnakrani/sample-submodule.git
+[submodule "apps/microservice-task"]
+	path = apps/microservice-task
+	url = https://github.com/arpitnakrani/microservice-task.git
